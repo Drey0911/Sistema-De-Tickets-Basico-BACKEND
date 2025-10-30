@@ -78,8 +78,8 @@ jobs:
           sleep 10
           
           echo "=== Verificando estado de la aplicación ==="
-          curl -f http://127.0.0.1:5000/health || echo "Health check failed, checking root..."
-          curl -f http://127.0.0.1:5000/ || (echo "App did not start properly" && cat app.log && exit 1)
+          curl -f http://127.0.0.1:8000/health || echo "Health check failed, checking root..."
+          curl -f http://127.0.0.1:8000/ || (echo "App did not start properly" && cat app.log && exit 1)
           
           echo "✓ App started successfully"
           cat app.log

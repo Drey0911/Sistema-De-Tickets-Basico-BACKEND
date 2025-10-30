@@ -22,12 +22,12 @@ def create_app():
     app.register_blueprint(user_routes, url_prefix='/api')
     app.register_blueprint(ticket_routes, url_prefix='/api')
     
-    # Endpoint de health check que no requiere BD
+    # Endpoint de health check
     @app.route('/health')
     def health_check():
         return jsonify({
             'status': 'healthy', 
-            'message': 'App is running',
+            'message': 'La app funciona bien',
             'database': 'unknown'
         }), 200
     
@@ -80,7 +80,7 @@ def create_app():
 app = create_app()
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 8000))
     debug = os.environ.get('FLASK_DEBUG', 'True').lower() == 'true'
     print(f"Iniciando aplicación en puerto {port}...")
     app.run(debug=debug, host='0.0.0.0', port=port)
