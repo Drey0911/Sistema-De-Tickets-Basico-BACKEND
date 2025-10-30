@@ -11,7 +11,7 @@ class Ticket(db.Model):
     titulo = db.Column(db.String(200), nullable=False)
     descripcion = db.Column(db.Text, nullable=False)
     prioridad = db.Column(db.String(20), nullable=False, default='media')
-    estado = db.Column(db.String(20), nullable=False, default='abierto')
+    estado = db.Column(db.String(20), nullable=False, default='Abierto')
     fecha_creacion = db.Column(db.DateTime, default=datetime.utcnow)
     fecha_modificacion = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     fecha_completado = db.Column(db.DateTime, nullable=True)
