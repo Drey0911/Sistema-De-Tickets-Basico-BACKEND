@@ -4,12 +4,14 @@ FROM python:3.11-slim
 # Crear directorio de trabajo
 WORKDIR /app
 
-# Copiar archivos al contenedor
-COPY . .
+# Copiar archivo de dependencias
+COPY requirements.txt .
 
 # Instalar dependencias
-COPY requirements.txt .
 RUN pip install -r requirements.txt
+
+# Copiar archivos al contenedor
+COPY . .
 
 # Exponer el puerto donde corre Flask
 EXPOSE 8000
